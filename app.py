@@ -33,7 +33,6 @@ def index():
 @app.route('/upload')
 def upload_page():
     return render_template('upload.html')
-
 @app.route('/process_image', methods=['POST'])
 def process_image():
     # Recebe a imagem do formulário de upload
@@ -71,4 +70,8 @@ def process_image():
     img_base64 = base64.b64encode(img_encoded).decode('utf-8')
     img_data = f"data:image/jpeg;base64,{img_base64}"
     
-    return render_template('index.html', image_data=img_data)
+    # Extraindo IDs dos rostos identificados
+    ids = [result['label'] for result in recognition_results]
+
+    return render_template('index.html', image_data=img_data, ids=ids)
+

@@ -28,8 +28,20 @@
 
     {% if image_data %}
     <div class="image-container">
-        <img src="{{ image_data }}" width="800" height="auto" alt="Imagem Enviada" class="uploaded-image">
+        <img src="{{ image_data }}" width="400" height="auto" alt="Imagem Enviada" class="uploaded-image">
     </div>
+    {% endif %}
+
+    <!-- Mostrar os IDs dos rostos identificados -->
+    {% if ids %}
+        <h2>Identified Face IDs:</h2>
+        <ul>
+            {% for id in ids %}
+                <li>{{ id }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No faces identified.</p>
     {% endif %}
 </body>
 </html>
