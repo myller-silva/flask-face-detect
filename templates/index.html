@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Imagem</title>
+    <style>
+        .image-container {
+            max-width: 100%;
+            max-height: 80vh; /* Ajuste conforme necessário */
+            overflow: hidden;
+        }
+
+        .uploaded-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload de Imagem</h1>
+    <form action="/process_image" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    {% if image_data %}
+    <div class="image-container">
+        <img src="{{ image_data }}" width="800" height="auto" alt="Imagem Enviada" class="uploaded-image">
+    </div>
+    {% endif %}
+</body>
+</html>

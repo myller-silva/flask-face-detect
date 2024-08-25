@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Imagem para Detecção Facial</title>
+</head>
+<body>
+    <h1>Upload de Imagem para Detecção Facial</h1>
+    <form method="POST" action="/process_image" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <br><br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
